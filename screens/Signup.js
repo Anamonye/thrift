@@ -10,21 +10,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 
+
 export function Signup ({navigation}) {
     const [appIsReady, setAppIsReady] = useState(false);
 
   useEffect(() => {
     async function prepare() {
       try {
-        // Pre-load fonts, make any API calls you need to do here
         await Font.loadAsync({Righteous_400Regular});
-        // Artificially delay for two seconds to simulate a slow loading
-        // experience. Please remove this if you copy and paste the code!
         await new Promise(resolve => setTimeout(resolve, 2000));
       } catch (e) {
         console.warn(e);
       } finally {
-        // Tell the application to render
+
         setAppIsReady(true);
       }
     }
@@ -34,16 +32,12 @@ export function Signup ({navigation}) {
 
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
-      // This tells the splash screen to hide immediately! If we call this after
-      // `setAppIsReady`, then we may see a blank screen while the app is
-      // loading its initial state and rendering its first pixels. So instead,
-      // we hide the splash screen once we know the root view has already
-      // performed layout.
+     
       await SplashScreen.hideAsync();
     }
   }, [appIsReady]);
 
-  if (!appIsReady) {
+  if (appIsReady) {
     return null;
   }
 
@@ -63,7 +57,8 @@ export function Signup ({navigation}) {
                     size={Theme.sizes[5]}/>
                     </TouchableOpacity>
                 </View>
-
+ 
+                  
                 <View style={styles.form}>
                     <TextInput
                     placeholder='Last name'
@@ -114,7 +109,7 @@ export function Signup ({navigation}) {
                   
                     <Button
                     mode="contained"
-                    color={Theme.colors.purple700} contentStyle={{paddingVertical:Theme.sizes[3]}}>Create Account
+                    color={Theme.colors.b} contentStyle={{paddingVertical:Theme.sizes[3]}}>Create Account
                     </Button>
 
                 </View>

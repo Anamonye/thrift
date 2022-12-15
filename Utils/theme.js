@@ -8,8 +8,10 @@ export const Theme = {
       maroon700:'#790252',
       maroon500:'#AF0171',
       maroon300:'#E80F88',
+      maroon200:'#FFCA64',
       blue900:'#002E94',
-      blue700:'#083AA9'
+      blue700:'#083AA9',
+      white200:'EEEEEE'
     },
     sizes: [0, 4, 8, 16, 32,64,128],
     fonts: {
